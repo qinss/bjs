@@ -1,0 +1,54 @@
+//
+//  BasicTableViewController.m
+//  eHome
+//
+//  Created by 秦世帅 on 2017/5/27.
+//  Copyright © 2017年 whsmwy. All rights reserved.
+//
+
+#import "BasicTableViewController.h"
+
+@interface BasicTableViewController ()
+
+@end
+
+@implementation BasicTableViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+   
+}
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return 0;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return  nil;
+}
+-(void)creatTableView:(CGRect)frame{
+    
+    _tableView =[[EHomeTableView alloc]initWithFrame:frame style:UITableViewStylePlain];
+    _tableView.backgroundColor = [UIColor clearColor];
+    _tableView.dataSource =  self;
+    _tableView.delegate = self;
+    _tableView.bounces = YES;
+    _tableView.showsVerticalScrollIndicator =NO;
+    [self.view addSubview:_tableView];
+  
+    
+}
+-(void)creatTableViewWithStyle:(CGRect)frame
+                         style:(UITableViewStyle )style{
+    
+    _tableView =[[EHomeTableView alloc]initWithFrame:frame style:style];
+    _tableView.backgroundColor = [UIColor clearColor];
+    _tableView.dataSource =  self;
+    _tableView.delegate = self;
+    _tableView.bounces = YES;
+    _tableView.showsVerticalScrollIndicator =NO;
+    [self.view addSubview:_tableView];
+    
+    
+}
+
+@end

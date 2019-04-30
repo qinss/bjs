@@ -1,0 +1,27 @@
+//
+//  BookDiscussViewController.m
+//  eHome
+//
+//  Created by 秦世帅 on 2017/6/1.
+//  Copyright © 2017年 whsmwy. All rights reserved.
+//
+
+#import "BookDiscussViewController.h"
+#import "AddDiscussViewController.h"
+@interface BookDiscussViewController ()
+
+@end
+
+@implementation BookDiscussViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    [self setUpNavigationBar:@"评论"];
+}
+- (IBAction)btnAddDiscussionTouchUpInside:(UIButton *)sender {
+    
+    AddDiscussViewController *vc = [[AddDiscussViewController alloc] init];
+//    vc.placeHolder = @"请输入您的评论";
+    [self.navigationController pushViewController:vc animated:YES];
+}
+@end

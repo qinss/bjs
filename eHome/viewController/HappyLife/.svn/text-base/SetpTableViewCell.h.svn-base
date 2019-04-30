@@ -1,0 +1,13 @@
+//
+//  SetpTableViewCell.h
+//  eHome
+//
+//  Created by 秦世帅 on 2017/6/1.
+//  Copyright © 2017年 whsmwy. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+
+@interface SetpTableViewCell : UITableViewCell
+
+@end

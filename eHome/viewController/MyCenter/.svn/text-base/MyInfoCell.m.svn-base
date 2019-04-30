@@ -1,0 +1,24 @@
+//
+//  MyInfoCell.m
+//  eHome
+//
+//  Created by 秦世帅 on 2017/5/24.
+//  Copyright © 2017年 whsmwy. All rights reserved.
+//
+
+#import "MyInfoCell.h"
+
+@implementation MyInfoCell
+
+- (void)awakeFromNib {
+    [super awakeFromNib];
+    // Initialization code
+}
+
+- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
+    [super setSelected:selected animated:animated];
+
+    // Configure the view for the selected state
+}
+
+@end

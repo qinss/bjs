@@ -1,0 +1,38 @@
+//
+//  ActionViewController.m
+//  eHome
+//
+//  Created by 秦世帅 on 2017/5/31.
+//  Copyright © 2017年 whsmwy. All rights reserved.
+//
+
+#import "ActionViewController.h"
+#import "DiscussionViewController.h"
+@interface ActionViewController ()
+@property(nonatomic,strong) DiscussionViewController *discussionViewController;
+
+@end
+
+@implementation ActionViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    self.title = @"E起行动";
+     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(pushToPastEventList)];
+    [self.viewPastEvent addGestureRecognizer:tapGesture];
+}
+
+
+
+-(void)pushToPastEventList{
+    
+}
+
+- (IBAction)btnSuggestionTouchUpInside:(UIButton *)sender {
+    
+    if (self.discussionViewController == nil) {
+        self.discussionViewController = [[DiscussionViewController alloc] init];
+    }
+    [self.navigationController pushViewController:self.discussionViewController animated:YES];
+}
+@end

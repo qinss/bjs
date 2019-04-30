@@ -1,0 +1,36 @@
+//
+//  UIImage+Extras.h
+//
+//  Created by tes on 13-5-23.
+//  Copyright (c) 2013年 tes. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+
+@interface UIImage (Extras){
+    
+}
+
+- (UIImage *)convertToGrayscale;
+
+/// 缩放图片 size没有*UIScreen.scale
+- (UIImage *) scaleImage:(CGSize) scaleSize;
+/// 缩放图片 size有*UIScreen.scale
+- (UIImage *)shrinkImage:(CGSize) size;
+
+- (UIImage *) cropImage:(CGRect) cropSize;
+
+- (UIImage *)rotate:(float)rads;
+
+- (UIImage *)colorImage:(UIColor *)theColor;
+
++ (UIImage *)imageWithColor:(UIColor *)color;
+
+- (NSArray *)getImageArray:(NSString *)imgPrefix from:(int)from  to:(int)to;
+
+- (UIImage *)fixOrientation;
+
+- (UIImage *)tintedImageUsingColor:(UIColor *)tintColor;
+
+- (UIImage *)re_applyBlurWithRadius:(CGFloat)blurRadius tintColor:(UIColor *)tintColor saturationDeltaFactor:(CGFloat)saturationDeltaFactor maskImage:(UIImage *)maskImage;
+@end

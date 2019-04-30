@@ -1,0 +1,55 @@
+//
+//  CommonListViewController.m
+//  eHome
+//
+//  Created by 秦世帅 on 2017/5/24.
+//  Copyright © 2017年 whsmwy. All rights reserved.
+//
+
+#import "CommonListViewController.h"
+#import "CustomTableViewCell.h"
+
+@interface CommonListViewController()
+@end
+
+@implementation CommonListViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    self.title = self.viewTitle;
+    [self creatTableView:CGRectMake(0, 0, ScreenWidth, ScreenHeight -64 -49-48)];
+    // Do any additional setup after loading the view.
+}
+
+
+- (id)initWithTitle:(NSString *)title
+{
+    self = [super init];
+    if(self != nil){
+        self.viewTitle = title;
+    }
+    return self;
+}
+
+/******************************************************************************
+ *  TableViewDelegate Implementation
+ ******************************************************************************/
+#pragma mark -
+#pragma mark TableViewDelegate Implementation
+#pragma mark - tableView的代理方法
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 80;
+}
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return 7;
+}
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    CustomTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"customTableViewCell"];
+    if (cell == nil)
+    {
+        cell = [[[NSBundle mainBundle]loadNibNamed:@"CustomTableViewCell" owner:self options:nil]lastObject];
+    }
+    return cell;
+}
+@end

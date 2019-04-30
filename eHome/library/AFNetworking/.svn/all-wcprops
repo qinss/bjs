@@ -1,0 +1,119 @@
+K 25
+svn:wc:ra_dav:version-url
+V 184
+/svn/digitalchinaWH/!svn/ver/1298/40_%E6%BA%90%E7%A0%81/5.0_mobile/trunk/%E7%AC%AC%E4%B8%89%E6%96%B9%E7%B3%BB%E7%BB%9F/%E5%8C%97%E6%B4%8Be%E5%AE%B6/iOS/eHome/eHome/library/AFNetworking
+END
+AFHTTPSessionManager.m
+K 25
+svn:wc:ra_dav:version-url
+V 207
+/svn/digitalchinaWH/!svn/ver/1298/40_%E6%BA%90%E7%A0%81/5.0_mobile/trunk/%E7%AC%AC%E4%B8%89%E6%96%B9%E7%B3%BB%E7%BB%9F/%E5%8C%97%E6%B4%8Be%E5%AE%B6/iOS/eHome/eHome/library/AFNetworking/AFHTTPSessionManager.m
+END
+AFURLResponseSerialization.m
+K 25
+svn:wc:ra_dav:version-url
+V 213
+/svn/digitalchinaWH/!svn/ver/1298/40_%E6%BA%90%E7%A0%81/5.0_mobile/trunk/%E7%AC%AC%E4%B8%89%E6%96%B9%E7%B3%BB%E7%BB%9F/%E5%8C%97%E6%B4%8Be%E5%AE%B6/iOS/eHome/eHome/library/AFNetworking/AFURLResponseSerialization.m
+END
+AFNetworking.h
+K 25
+svn:wc:ra_dav:version-url
+V 199
+/svn/digitalchinaWH/!svn/ver/1298/40_%E6%BA%90%E7%A0%81/5.0_mobile/trunk/%E7%AC%AC%E4%B8%89%E6%96%B9%E7%B3%BB%E7%BB%9F/%E5%8C%97%E6%B4%8Be%E5%AE%B6/iOS/eHome/eHome/library/AFNetworking/AFNetworking.h
+END
+AFSecurityPolicy.h
+K 25
+svn:wc:ra_dav:version-url
+V 203
+/svn/digitalchinaWH/!svn/ver/1298/40_%E6%BA%90%E7%A0%81/5.0_mobile/trunk/%E7%AC%AC%E4%B8%89%E6%96%B9%E7%B3%BB%E7%BB%9F/%E5%8C%97%E6%B4%8Be%E5%AE%B6/iOS/eHome/eHome/library/AFNetworking/AFSecurityPolicy.h
+END
+AFSecurityPolicy.m
+K 25
+svn:wc:ra_dav:version-url
+V 203
+/svn/digitalchinaWH/!svn/ver/1298/40_%E6%BA%90%E7%A0%81/5.0_mobile/trunk/%E7%AC%AC%E4%B8%89%E6%96%B9%E7%B3%BB%E7%BB%9F/%E5%8C%97%E6%B4%8Be%E5%AE%B6/iOS/eHome/eHome/library/AFNetworking/AFSecurityPolicy.m
+END
+AFURLSessionManager.h
+K 25
+svn:wc:ra_dav:version-url
+V 206
+/svn/digitalchinaWH/!svn/ver/1298/40_%E6%BA%90%E7%A0%81/5.0_mobile/trunk/%E7%AC%AC%E4%B8%89%E6%96%B9%E7%B3%BB%E7%BB%9F/%E5%8C%97%E6%B4%8Be%E5%AE%B6/iOS/eHome/eHome/library/AFNetworking/AFURLSessionManager.h
+END
+AFURLConnectionOperation.h
+K 25
+svn:wc:ra_dav:version-url
+V 211
+/svn/digitalchinaWH/!svn/ver/1298/40_%E6%BA%90%E7%A0%81/5.0_mobile/trunk/%E7%AC%AC%E4%B8%89%E6%96%B9%E7%B3%BB%E7%BB%9F/%E5%8C%97%E6%B4%8Be%E5%AE%B6/iOS/eHome/eHome/library/AFNetworking/AFURLConnectionOperation.h
+END
+AFHTTPRequestOperationManager.h
+K 25
+svn:wc:ra_dav:version-url
+V 216
+/svn/digitalchinaWH/!svn/ver/1298/40_%E6%BA%90%E7%A0%81/5.0_mobile/trunk/%E7%AC%AC%E4%B8%89%E6%96%B9%E7%B3%BB%E7%BB%9F/%E5%8C%97%E6%B4%8Be%E5%AE%B6/iOS/eHome/eHome/library/AFNetworking/AFHTTPRequestOperationManager.h
+END
+AFNetworkReachabilityManager.h
+K 25
+svn:wc:ra_dav:version-url
+V 215
+/svn/digitalchinaWH/!svn/ver/1298/40_%E6%BA%90%E7%A0%81/5.0_mobile/trunk/%E7%AC%AC%E4%B8%89%E6%96%B9%E7%B3%BB%E7%BB%9F/%E5%8C%97%E6%B4%8Be%E5%AE%B6/iOS/eHome/eHome/library/AFNetworking/AFNetworkReachabilityManager.h
+END
+AFURLSessionManager.m
+K 25
+svn:wc:ra_dav:version-url
+V 206
+/svn/digitalchinaWH/!svn/ver/1298/40_%E6%BA%90%E7%A0%81/5.0_mobile/trunk/%E7%AC%AC%E4%B8%89%E6%96%B9%E7%B3%BB%E7%BB%9F/%E5%8C%97%E6%B4%8Be%E5%AE%B6/iOS/eHome/eHome/library/AFNetworking/AFURLSessionManager.m
+END
+AFURLConnectionOperation.m
+K 25
+svn:wc:ra_dav:version-url
+V 211
+/svn/digitalchinaWH/!svn/ver/1298/40_%E6%BA%90%E7%A0%81/5.0_mobile/trunk/%E7%AC%AC%E4%B8%89%E6%96%B9%E7%B3%BB%E7%BB%9F/%E5%8C%97%E6%B4%8Be%E5%AE%B6/iOS/eHome/eHome/library/AFNetworking/AFURLConnectionOperation.m
+END
+AFURLRequestSerialization.h
+K 25
+svn:wc:ra_dav:version-url
+V 212
+/svn/digitalchinaWH/!svn/ver/1298/40_%E6%BA%90%E7%A0%81/5.0_mobile/trunk/%E7%AC%AC%E4%B8%89%E6%96%B9%E7%B3%BB%E7%BB%9F/%E5%8C%97%E6%B4%8Be%E5%AE%B6/iOS/eHome/eHome/library/AFNetworking/AFURLRequestSerialization.h
+END
+AFHTTPRequestOperationManager.m
+K 25
+svn:wc:ra_dav:version-url
+V 216
+/svn/digitalchinaWH/!svn/ver/1298/40_%E6%BA%90%E7%A0%81/5.0_mobile/trunk/%E7%AC%AC%E4%B8%89%E6%96%B9%E7%B3%BB%E7%BB%9F/%E5%8C%97%E6%B4%8Be%E5%AE%B6/iOS/eHome/eHome/library/AFNetworking/AFHTTPRequestOperationManager.m
+END
+AFHTTPRequestOperation.h
+K 25
+svn:wc:ra_dav:version-url
+V 209
+/svn/digitalchinaWH/!svn/ver/1298/40_%E6%BA%90%E7%A0%81/5.0_mobile/trunk/%E7%AC%AC%E4%B8%89%E6%96%B9%E7%B3%BB%E7%BB%9F/%E5%8C%97%E6%B4%8Be%E5%AE%B6/iOS/eHome/eHome/library/AFNetworking/AFHTTPRequestOperation.h
+END
+AFNetworkReachabilityManager.m
+K 25
+svn:wc:ra_dav:version-url
+V 215
+/svn/digitalchinaWH/!svn/ver/1298/40_%E6%BA%90%E7%A0%81/5.0_mobile/trunk/%E7%AC%AC%E4%B8%89%E6%96%B9%E7%B3%BB%E7%BB%9F/%E5%8C%97%E6%B4%8Be%E5%AE%B6/iOS/eHome/eHome/library/AFNetworking/AFNetworkReachabilityManager.m
+END
+AFHTTPRequestOperation.m
+K 25
+svn:wc:ra_dav:version-url
+V 209
+/svn/digitalchinaWH/!svn/ver/1298/40_%E6%BA%90%E7%A0%81/5.0_mobile/trunk/%E7%AC%AC%E4%B8%89%E6%96%B9%E7%B3%BB%E7%BB%9F/%E5%8C%97%E6%B4%8Be%E5%AE%B6/iOS/eHome/eHome/library/AFNetworking/AFHTTPRequestOperation.m
+END
+AFHTTPSessionManager.h
+K 25
+svn:wc:ra_dav:version-url
+V 207
+/svn/digitalchinaWH/!svn/ver/1298/40_%E6%BA%90%E7%A0%81/5.0_mobile/trunk/%E7%AC%AC%E4%B8%89%E6%96%B9%E7%B3%BB%E7%BB%9F/%E5%8C%97%E6%B4%8Be%E5%AE%B6/iOS/eHome/eHome/library/AFNetworking/AFHTTPSessionManager.h
+END
+AFURLRequestSerialization.m
+K 25
+svn:wc:ra_dav:version-url
+V 212
+/svn/digitalchinaWH/!svn/ver/1298/40_%E6%BA%90%E7%A0%81/5.0_mobile/trunk/%E7%AC%AC%E4%B8%89%E6%96%B9%E7%B3%BB%E7%BB%9F/%E5%8C%97%E6%B4%8Be%E5%AE%B6/iOS/eHome/eHome/library/AFNetworking/AFURLRequestSerialization.m
+END
+AFURLResponseSerialization.h
+K 25
+svn:wc:ra_dav:version-url
+V 213
+/svn/digitalchinaWH/!svn/ver/1298/40_%E6%BA%90%E7%A0%81/5.0_mobile/trunk/%E7%AC%AC%E4%B8%89%E6%96%B9%E7%B3%BB%E7%BB%9F/%E5%8C%97%E6%B4%8Be%E5%AE%B6/iOS/eHome/eHome/library/AFNetworking/AFURLResponseSerialization.h
+END

@@ -1,0 +1,185 @@
+//
+//  FindViewController.m
+//  eHome
+//
+//  Created by 秦世帅 on 2017/5/26.
+//  Copyright © 2017年 whsmwy. All rights reserved.
+//
+
+#import "FindViewController.h"
+#import "FindTableViewCell.h"
+#import "FindviewModel.h"
+@interface FindViewController ()<UITableViewDelegate,UITableViewDataSource>
+@property (nonatomic, assign, getter = isVisiable) BOOL visiable;
+@property (nonatomic, assign, getter = isSelf_adaption) BOOL self_adaption;
+@property (nonatomic, strong) NSIndexPath* indexPath_cell;
+@property(nonatomic,strong)FindTableViewCell *cell;
+@property(nonatomic,strong)FindviewModel *model;
+
+@property(nonatomic,strong) NSMutableArray *ifOpen;
+//@property(nonatomic,strong) NSArray *height
+@end
+
+@implementation FindViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    self.title = @"发现了没";
+    self.tableView.dataSource = self;
+    self.tableView.delegate = self;
+    self.ifOpen = [[NSMutableArray alloc] initWithCapacity:7];
+    self.model = [[FindviewModel alloc] initWithDelegate:self];
+    [self creatTableView:CGRectMake(0, 0, ScreenWidth, ScreenHeight -64 -49-48)];
+    [self.tableView registerNib:[UINib nibWithNibName:@"FindTableViewCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"findTableViewCell"];
+    self.cell = [self.tableView dequeueReusableCellWithIdentifier:@"findTableViewCell"];
+    self.tableView.allowsSelection = NO;
+    [self updateHeightArr];
+    // Do any additional setup after loading the view from its nib.
+}
+
+-(void)btnSearchTouchUpInside:(UIButton *)sender{
+   
+    FindTableViewCell *cell2 = (FindTableViewCell *)[[[sender superview] superview] superview];
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:cell2];
+     FindTableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+    if ([sender.titleLabel.text  isEqual: @"查看全文"]) {
+        [sender setTitle:@"收起全文" forState:UIControlStateNormal];
+        [self.model.ifOpendic setValue:@(1) forKey: [NSString stringWithFormat:@"%ld",indexPath.row]];
+        [self.tableView beginUpdates];
+        [UIView animateWithDuration:0.5
+                         animations:^{
+                             CGSize size = [self.cell.lblContent sizeThatFits:CGSizeMake(self.cell.lblContent.frame.size.width, MAXFLOAT)];
+                             CGRect oldFrame = cell.frame;
+                             oldFrame.size.height = size.height;
+                             cell.frame = oldFrame;
+                             cell.lblContent.frame = CGRectMake(cell.lblContent.frame.origin.x, cell.lblContent.frame.origin.y, cell.lblContent.frame.size.width, size.height);
+                             
+                         }completion:^(BOOL finish){
+                             _visiable = YES;
+                             
+                         }];
+        
+        [UIView animateWithDuration:0.5 animations:^{
+            
+             CGSize size = [self.cell.lblContent sizeThatFits:CGSizeMake(self.cell.lblContent.frame.size.width, MAXFLOAT)];
+//            NSLog(@"rfrgs%@",size);
+            
+            sender.frame = CGRectMake(sender.frame.origin.x, sender.frame.origin.y, sender.frame.size.width, sender.frame.size.height + size.height );
+
+        }];
+        [self.tableView endUpdates];
+    }
+    else{
+        [sender setTitle:@"查看全文" forState:UIControlStateNormal];
+         [self.model.ifOpendic setValue:@(0) forKey: [NSString stringWithFormat:@"%ld",indexPath.row]];
+        [UIView animateWithDuration:0.5
+                         animations:^{
+                         }completion:^(BOOL finish){
+                             _visiable = NO;
+                             _self_adaption = NO;
+                             cell.lblContent.frame = CGRectMake(cell.lblContent.frame.origin.x, cell.lblContent.frame.origin.y, cell.lblContent.frame.size.width, 40);
+                             [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+                         }];
+        
+        [UIView animateWithDuration:0.5 animations:^{
+            CGSize size = [self.cell.lblContent sizeThatFits:CGSizeMake(self.cell.lblContent.frame.size.width, MAXFLOAT)];
+            sender.frame = CGRectMake(sender.frame.origin.x, sender.frame.origin.y, sender.frame.size.width, sender.frame.size.height -(size.height ));
+        }];
+    }
+}
+-(void)updateHeightArr{
+    for (int i = 0; i< self.model.dataArray.count; i++) {
+        
+        NSString *str = [self.model.dataArray objectAtIndex:i];
+        self.cell.lblContent.text = str;
+        CGSize size = [self.cell.lblContent sizeThatFits:CGSizeMake(self.cell.lblContent.frame.size.width, MAXFLOAT)];
+        [self.model.heightArr setObject:@(size.height) atIndexedSubscript:i];
+    }
+}
+/******************************************************************************
+ *  TableViewDelegate Implementation
+ ******************************************************************************/
+#pragma mark -
+#pragma mark TableViewDelegate Implementation
+#pragma mark - tableView的代理方法
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    NSString *str = [self.model.dataArray objectAtIndex:indexPath.row];
+    self.cell.lblContent.text = str;
+    CGSize size = [self.cell.lblContent sizeThatFits:CGSizeMake(self.cell.lblContent.frame.size.width, MAXFLOAT)];
+    NSInteger openState = [[self.model.ifOpendic objectForKey:[NSString stringWithFormat:@"%ld",indexPath.row]] integerValue];
+    if (openState == 1 && [[self.model.heightArr objectAtIndex:indexPath.row] floatValue]> 40) {
+        return  120 + size.height - 40;
+    }
+    else{
+        return 120;
+    }
+    
+//    if (self.isSelf_adaption && [indexPath isEqual:_indexPath_cell]) {
+//       
+//        if (size.height < 40) {
+//            return 120;
+//        }
+//        else{
+//            return  120 + size.height - 40;
+//        }
+//        
+//        
+//        
+//    }else{
+//        return 120;
+//    }
+}
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return self.model.dataArray.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+
+    FindTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"findTableViewCell"];
+    if (cell == nil)
+    {
+        cell = [[[NSBundle mainBundle]loadNibNamed:@"FindTableViewCell" owner:self options:nil]lastObject];
+    }
+    cell.btnSearch.tag = 1000+indexPath.row;
+    cell.lblContent.text = [self.model.dataArray objectAtIndex:indexPath.row];
+    [cell.btnSearch addTarget:self action:@selector(btnSearchTouchUpInside:) forControlEvents:UIControlEventTouchUpInside];
+//          cell.lblTitle.text = [self.model.dataArray objectAtIndex:indexPath.row];
+    return cell;
+    
+}
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+//    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+//    FindTableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+//      if (!self.isVisiable) {
+//            _indexPath_cell = indexPath;
+//           _self_adaption = YES;
+//    [tableView beginUpdates];
+//    [UIView animateWithDuration:0.5
+//                     animations:^{
+//                         CGSize size = [self.cell.lblContent sizeThatFits:CGSizeMake(self.cell.lblContent.frame.size.width, MAXFLOAT)];
+//                         CGRect oldFrame = cell.frame;
+//                         oldFrame.size.height = size.height;
+//                         cell.frame = oldFrame;
+//                  cell.lblContent.frame = CGRectMake(cell.lblContent.frame.origin.x, cell.lblContent.frame.origin.y, cell.lblContent.frame.size.width, size.height);
+//                         
+//                         
+//                     }completion:^(BOOL finish){
+//                         _visiable = YES;
+//                     }];
+//    [tableView endUpdates];
+//      }
+//      else{
+//          [UIView animateWithDuration:0.5
+//                           animations:^{
+//                           }completion:^(BOOL finish){
+//                               _visiable = NO;
+//                               _self_adaption = NO;
+//                               cell.lblContent.frame = CGRectMake(cell.lblContent.frame.origin.x, cell.lblContent.frame.origin.y, cell.lblContent.frame.size.width, 40);
+//                               [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+//                           }];
+//      }
+      }
+@end

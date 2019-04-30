@@ -1,0 +1,35 @@
+//
+//  PassEnentTableViewController.m
+//  eHome
+//
+//  Created by 秦世帅 on 2017/6/2.
+//  Copyright © 2017年 whsmwy. All rights reserved.
+//
+
+#import "PassEnentTableViewController.h"
+
+@interface PassEnentTableViewController ()
+
+@end
+
+@implementation PassEnentTableViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    [self setUpNavigationBar:@"活动回顾"];
+    // Do any additional setup after loading the view.
+}
+
+
+
+/*
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+}
+*/
+
+@end

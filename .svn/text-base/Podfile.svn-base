@@ -1,0 +1,12 @@
+
+platform :ios, ‘8.0’
+use_frameworks!
+target ‘eHome’ do
+   pod 'SDWebImage', '~> 4.0.0' 
+  
+#   pod 'IQKeyboardManager', '~> 3.2.0.3'
+   pod 'SDCycleScrollView','~> 1.64'
+end
+target 'eHomeTests'  do
+    pod 'Kiwi'
+end

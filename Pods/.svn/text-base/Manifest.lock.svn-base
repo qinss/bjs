@@ -1,0 +1,21 @@
+PODS:
+  - Kiwi (2.4.0)
+  - SDCycleScrollView (1.66):
+    - SDWebImage (~> 4.0.0)
+  - SDWebImage (4.0.0):
+    - SDWebImage/Core (= 4.0.0)
+  - SDWebImage/Core (4.0.0)
+
+DEPENDENCIES:
+  - Kiwi
+  - SDCycleScrollView (~> 1.64)
+  - SDWebImage (~> 4.0.0)
+
+SPEC CHECKSUMS:
+  Kiwi: f49c9d54b28917df5928fe44968a39ed198cb8a8
+  SDCycleScrollView: e3ade90e9b3159bec04330b208fbfd81c3f3b671
+  SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
+
+PODFILE CHECKSUM: 723f95be14e5fdc120bffb2251341d085d98db6f
+
+COCOAPODS: 1.2.1

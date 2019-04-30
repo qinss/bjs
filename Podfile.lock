@@ -1,0 +1,38 @@
+PODS:
+  - CTAssetsPickerController (3.3.1):
+    - PureLayout (~> 3.0.0)
+  - JCore (1.2.2)
+  - JPush (3.1.0):
+    - JCore (~> 1.2.0)
+  - PureLayout (3.0.2)
+  - SDCycleScrollView (1.75):
+    - SDWebImage (>= 4.0.0)
+  - SDWebImage (4.4.2):
+    - SDWebImage/Core (= 4.4.2)
+  - SDWebImage/Core (4.4.2)
+
+DEPENDENCIES:
+  - CTAssetsPickerController (~> 3.3.0)
+  - JPush
+  - SDCycleScrollView (~> 1.64)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - CTAssetsPickerController
+    - JCore
+    - JPush
+    - PureLayout
+    - SDCycleScrollView
+    - SDWebImage
+
+SPEC CHECKSUMS:
+  CTAssetsPickerController: b1d1d50ab87cf6b8b13531de5f4530482e7e53ed
+  JCore: f14c0549968a63c22e246a4875aa9d428446f373
+  JPush: 5921e25ad13e0386351079217b009f2039084eac
+  PureLayout: 4d550abe49a94f24c2808b9b95db9131685fe4cd
+  SDCycleScrollView: 884b88f0266dd4708a0e1934975c69cb971707b1
+  SDWebImage: 624d6e296c69b244bcede364c72ae0430ac14681
+
+PODFILE CHECKSUM: bccdf7c2c84824d3788955de041016d51701cc76
+
+COCOAPODS: 1.5.3

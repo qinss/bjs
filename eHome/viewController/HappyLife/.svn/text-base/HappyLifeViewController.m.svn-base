@@ -1,0 +1,36 @@
+//
+//  HappyLifeViewController.m
+//  eHome
+//
+//  Created by 秦世帅 on 2017/5/23.
+//  Copyright © 2017年 whsmwy. All rights reserved.
+//
+
+#import "HappyLifeViewController.h"
+#import "FindViewController.h"
+#import "SportViewController.h"
+
+@interface HappyLifeViewController ()
+
+@property(nonatomic,strong) FindViewController *controller1;
+@property(nonatomic,strong) SportViewController *controller2;
+@end
+
+@implementation HappyLifeViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+     [self setUpNavigationBar:@"乐生活"];
+    if(self.controller1 == nil){
+        self.controller1 = [[ FindViewController alloc] init];
+    }
+    if(self.controller2 == nil){
+        self.controller2 = [[SportViewController alloc] init];
+    }
+    self.controllers = @[self.controller1,self.controller2];
+     self.navigationItem.leftBarButtonItem = nil;
+    [self setUpSliderSwithView];
+
+}
+
+@end

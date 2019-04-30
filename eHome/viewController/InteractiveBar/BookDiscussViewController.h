@@ -1,0 +1,15 @@
+//
+//  BookDiscussViewController.h
+//  eHome
+//
+//  Created by 秦世帅 on 2017/6/1.
+//  Copyright © 2017年 whsmwy. All rights reserved.
+//
+
+#import "BasicTableViewController.h"
+
+@interface BookDiscussViewController : BasicTableViewController
+
+- (IBAction)btnAddDiscussionTouchUpInside:(UIButton *)sender;
+@property(nonatomic,assign) NSInteger book_id;
+@end

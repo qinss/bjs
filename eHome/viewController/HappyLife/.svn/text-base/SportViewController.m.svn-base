@@ -1,0 +1,62 @@
+//
+//  SportViewController.m
+//  eHome
+//
+//  Created by 秦世帅 on 2017/5/26.
+//  Copyright © 2017年 whsmwy. All rights reserved.
+//
+
+#import "SportViewController.h"
+#import "FindViewController.h"
+#import "DayRankingTableViewCell.h"
+#import "RankingListViewController.h"
+
+@interface SportViewController()
+@property(nonatomic,strong) RankingListViewController *rankingListViewController;
+@end
+
+@implementation SportViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    self.title = @"运动了没";
+    [self creatTableView:CGRectMake(0, 50, ScreenWidth, ScreenHeight-64-49-50-48)];
+}
+/******************************************************************************
+ *  TableViewDelegate Implementation
+ ******************************************************************************/
+#pragma mark -
+#pragma mark TableViewDelegate Implementation
+#pragma mark - tableView的代理方法
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 6;
+}
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 120;
+}
+//-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+//{
+//    
+//    return 11.f;
+//}
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    DayRankingTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"dayRankingTableViewCell"];
+    if (cell == nil) 
+    {
+        cell = [[[NSBundle mainBundle]loadNibNamed:@"DayRankingTableViewCell" owner:self options:nil]lastObject];
+    }
+      return cell;
+}
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+    [self pushToRankingListViewController];
+}
+-(void)pushToRankingListViewController{
+    if (self.rankingListViewController == nil) {
+        self.rankingListViewController = [[RankingListViewController alloc] init];
+    }
+    [self.navigationController pushViewController:self.rankingListViewController animated:YES];
+}
+@end

@@ -1,0 +1,16 @@
+//
+//  RecommendBookViewController.h
+//  eHome
+//
+//  Created by 秦世帅 on 2017/6/2.
+//  Copyright © 2017年 whsmwy. All rights reserved.
+//
+
+#import "BasicTableViewController.h"
+
+@interface RecommendBookViewController : BasicTableViewController
+@property (strong, nonatomic) IBOutlet UIView *viewContent;
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (weak, nonatomic) IBOutlet UIImageView *imgHead;
+
+@end

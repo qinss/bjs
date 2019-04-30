@@ -1,0 +1,66 @@
+//
+//  AddDiscussViewController.m
+//  eHome
+//
+//  Created by 秦世帅 on 2017/6/2.
+//  Copyright © 2017年 whsmwy. All rights reserved.
+//
+
+#import "AddDiscussViewController.h"
+
+@interface AddDiscussViewController ()<UITextViewDelegate>
+{
+    UILabel *textViewPlaceholderLabel;
+}
+
+@end
+
+@implementation AddDiscussViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    [self setUpNavigationBar:@"评论"];
+    [self addTextView];
+    
+    
+    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [btn addTarget:self action:@selector(save) forControlEvents:UIControlEventTouchUpInside];
+    btn.bounds = CGRectMake(0, 0,60, 30);
+    btn.contentHorizontalAlignment=UIControlContentHorizontalAlignmentRight;
+    btn.titleLabel.font = [UIFont systemFontOfSize:16];
+    [btn setImage:[UIImage imageNamed:@"icon_Save"] forState:UIControlStateNormal];
+    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithCustomView:btn];
+    self.navigationItem.rightBarButtonItem = item;
+}
+-(void)save{
+    
+}
+-(void)addTextView{
+    textViewPlaceholderLabel = [[UILabel alloc] initWithFrame:CGRectMake(13, 52, ScreenWidth-60, 25)];
+    textViewPlaceholderLabel.text = @"请输入您的评论";
+    textViewPlaceholderLabel.textColor = [UIColor grayColor];
+    [self.scrollView addSubview: textViewPlaceholderLabel];
+    UITextView *textView = [[UITextView alloc] initWithFrame:CGRectMake(10, 50, ScreenWidth-20, 150)];
+    textView.delegate = self;
+    textView.backgroundColor = [UIColor clearColor];
+//    textView.layer.borderWidth = 1.0f;
+//    textView.layer.borderColor = [UIColor blackColor].CGColor;
+    [self.scrollView addSubview: textView];
+//    [self.view addSubview: scrollView];
+}
+//设置textView的placeholder
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
+{
+    //[text isEqualToString:@""] 表示输入的是退格键
+    if (![text isEqualToString:@""])
+    {
+        textViewPlaceholderLabel.hidden = YES;
+    }
+    //range.location == 0 && range.length == 1 表示输入的是第一个字符
+    if ([text isEqualToString:@""] && range.location == 0 && range.length == 1)
+    {
+        textViewPlaceholderLabel.hidden = NO;
+    }
+    return YES;
+}
+@end

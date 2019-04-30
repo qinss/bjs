@@ -1,0 +1,92 @@
+//
+//  FDNavigationController.m
+//  eHome
+//
+//  Created by 秦世帅 on 2017/5/24.
+//  Copyright © 2017年 whsmwy. All rights reserved.
+//
+
+#import "FDNavigationController.h"
+#import "GlobalVariables.h"
+@interface FDNavigationController ()
+
+@end
+
+@implementation FDNavigationController
+
+/**
+ *  第一次使用这个类的时候会调用(1个类只会调用1次)
+ */
++ (void)initialize
+{
+    // 1.设置导航栏主题
+    [self setupNavBarTheme];
+    
+    // 2.设置导航栏按钮主题
+    [self setupBarButtonItemTheme];
+}
+- (UIStatusBarStyle)preferredStatusBarStyle
+{
+    return UIStatusBarStyleDefault;
+}
+
+//  设置 按钮  主题
++ (void)setupBarButtonItemTheme
+{
+    UIBarButtonItem * item = [UIBarButtonItem appearance];
+    
+    // 设置文字属性
+    NSMutableDictionary *textAttrs = [NSMutableDictionary dictionary];
+    // textAttrs[NSForegroundColorAttributeName] =  [GlobalVariables SYFColorChange:@"#ffffff"];
+    // textAttrs[NSShadowAttributeName] = [NSValue valueWithUIOffset:UIOffsetZero];
+    textAttrs[NSFontAttributeName] = [UIFont fontWithName:@"TamilSangamMN-Bold" size:20];
+    
+    [item setTitleTextAttributes:textAttrs forState:UIControlStateNormal];
+    [item setTitleTextAttributes:textAttrs forState:UIControlStateHighlighted];
+}
+
+- (void)setUpNavigationBar:(NSString *)titleText
+{
+    self.title = titleText;
+    
+    //    UIButton * backBtn = [SYFView NewsUiBarButton:@"button_back" WithISLeft:YES];
+    //    [backBtn addTarget:self action:@selector(BackBtnClick) forControlEvents:UIControlEventTouchUpInside];
+    //    UIBarButtonItem * backItem = [[UIBarButtonItem alloc] initWithCustomView:backBtn];
+    //    self.navigationItem.leftBarButtonItem = backItem;
+    
+}
+/**
+ *  设置 导航栏 主题
+ */
++ (void)setupNavBarTheme
+{
+    // 取出appearance对象
+    UINavigationBar *navBar = [UINavigationBar appearance];
+    if([[UIDevice currentDevice].systemVersion doubleValue]>=8.0)
+        navBar.translucent = YES;
+    // 设置标题属性
+  
+    // navBar.barTintColor = SYFMainColor;
+    NSMutableDictionary *textAttrs = [NSMutableDictionary dictionary];
+    [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
+    // textAttrs[NSForegroundColorAttributeName] = [GlobalVariables SYFColorChange:@"#ffffff"];
+    // textAttrs[NSShadowAttributeName] = [NSValue valueWithUIOffset:UIOffsetZero];
+    
+    textAttrs[NSFontAttributeName] = [UIFont boldSystemFontOfSize:19];
+    
+    [navBar setTitleTextAttributes:textAttrs];
+    navBar.barTintColor = ColorBlue;
+
+//    [[UINavigationBar appearance] setBarTintColor:[UIColor whiteColor]];
+}
+
+- (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated
+{
+    if (self.viewControllers.count > 0)
+    {
+        viewController.hidesBottomBarWhenPushed = YES;
+    }
+    [super pushViewController:viewController animated:animated];
+}
+
+@end

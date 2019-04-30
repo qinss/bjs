@@ -4,14 +4,36 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>NotificationService.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 		<key>eHome.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>pushService.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>12</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>C469C9171F985037008E6529</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C469C9291F986E8D008E6529</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>C471F8231ED3BA0900CAEEAE</key>
 		<dict>
 			<key>primary</key>

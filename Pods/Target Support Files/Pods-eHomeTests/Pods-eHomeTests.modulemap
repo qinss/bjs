@@ -1,0 +1,6 @@
+framework module Pods_eHomeTests {
+  umbrella header "Pods-eHomeTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

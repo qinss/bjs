@@ -1,0 +1,83 @@
+//
+//  GruopNewsletterViewController.m
+//  eHome
+//
+//  Created by 秦世帅 on 2017/5/25.
+//  Copyright © 2017年 whsmwy. All rights reserved.
+//
+
+#import "GruopNewsletterViewController.h"
+#import "SDCycleScrollView.h"
+#import "CustomTableViewCell.h"
+@interface GruopNewsletterViewController ()<SDCycleScrollViewDelegate>
+
+@end
+
+@implementation GruopNewsletterViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    self.title = @"组工简讯";
+    
+    
+    NSArray *imageNames = @[@"1.jpg",
+                            @"2.jpg",
+                            @"3.jpg"];
+    NSArray *titles = @[@"我是第一个标题 ",
+                        @"我是第二个标题",
+                        @"我是第三个标题",
+                        @"您可以发邮件到gsdios@126.com"
+                        ];
+    SDCycleScrollView *cycleScrollView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0, ScreenWidth, 180)imageNamesGroup:imageNames];
+    
+    cycleScrollView.titleLabelTextAlignment = NSTextAlignmentCenter;
+     cycleScrollView.titlesGroup = titles;
+    cycleScrollView.infiniteLoop = YES;
+    cycleScrollView.delegate = self;
+    cycleScrollView.pageControlStyle =SDCycleScrollViewPageContolStyleAnimated;
+       cycleScrollView.autoScrollTimeInterval = 4.0;
+    cycleScrollView.showPageControl = NO;
+    [self.view addSubview:cycleScrollView];
+    [self creatTableView:CGRectMake(0, 180, ScreenWidth, ScreenHeight- 180 -64 -49-48) ];
+    // 清除缓存
+    //    [cycleScrollView2 clearCache];
+    
+}
+/******************************************************************************
+ *  TableViewDelegate Implementation
+ ******************************************************************************/
+#pragma mark -
+#pragma mark TableViewDelegate Implementation
+#pragma mark - tableView的代理方法
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 80;
+}
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return 5;
+}
+
+// Row display. Implementers should *always* try to reuse cells by setting each cell's reuseIdentifier and querying for available reusable cells with dequeueReusableCellWithIdentifier:
+// Cell gets various attributes set automatically based on table (separators) and data source (accessory views, editing controls)
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    CustomTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"customTableViewCell"];
+    if (cell == nil)
+    {
+        cell = [[[NSBundle mainBundle]loadNibNamed:@"CustomTableViewCell" owner:self options:nil]lastObject];
+    }
+//    cell.lblTitle.text = [self.model.titleArray objectAtIndex:indexPath.row];
+    return cell;
+
+}
+
+
+
+
+
+
+- (void)cycleScrollView:(SDCycleScrollView *)cycleScrollView didSelectItemAtIndex:(NSInteger)index{
+    
+ 
+}
+@end

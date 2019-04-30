@@ -1,0 +1,21 @@
+//
+//  eHomeUrlDefine.h
+//  eHome
+//
+//  Created by 秦世帅 on 2017/5/23.
+//  Copyright © 2017年 whsmwy. All rights reserved.
+//
+
+#ifndef eHomeUrlDefine_h
+#define eHomeUrlDefine_h
+
+// 控制测试环境和真实环境之间的切换
+// 测试环境：0
+// 真实环境：1
+#define IS_FORMAL 0
+#if IS_FORMAL
+#define DefaultUrl @"https://www.baojinsuo.com/"
+#else
+#define DefaultUrl @"http://springboot.baojinsuo.cn/"
+#endif
+#endif /* eHomeUrlDefine_h */

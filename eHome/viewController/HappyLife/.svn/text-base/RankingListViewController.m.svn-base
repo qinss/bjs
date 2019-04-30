@@ -1,0 +1,47 @@
+//
+//  RankingListViewController.m
+//  eHome
+//
+//  Created by 秦世帅 on 2017/5/27.
+//  Copyright © 2017年 whsmwy. All rights reserved.
+//
+
+#import "RankingListViewController.h"
+#import "SetpTableViewCell.h"
+
+@interface RankingListViewController ()
+
+@end
+
+@implementation RankingListViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    [self setUpNavigationBar:@"乐生活"];
+     [self creatTableView:CGRectMake(0,154, ScreenWidth, ScreenHeight -154)];
+}
+/******************************************************************************
+ *  TableViewDelegate Implementation
+ ******************************************************************************/
+#pragma mark -
+#pragma mark TableViewDelegate Implementation
+#pragma mark - tableView的代理方法
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 80;
+}
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return 7;
+}
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    SetpTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"setpTableViewCell"];
+    if (cell == nil)
+    {
+        cell = [[[NSBundle mainBundle]loadNibNamed:@"SetpTableViewCell" owner:self options:nil]lastObject];
+    }
+    return cell;
+    return nil;
+}
+
+
+@end

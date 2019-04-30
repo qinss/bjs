@@ -1,0 +1,20 @@
+//
+//  FindviewModel.m
+//  eHome
+//
+//  Created by 秦世帅 on 2017/5/31.
+//  Copyright © 2017年 whsmwy. All rights reserved.
+//
+
+#import "FindviewModel.h"
+
+@implementation FindviewModel
+-(id)initWithDelegate:(id<ModelCallBackDelegate>)delegate{
+    
+    self = [super initWithDelegate:delegate];
+    self.dataArray  =@[@"给他揉了了艰苦奋斗了失落感高谈阔论人；你不能明白感觉结果 i 就开了个电话过来发的健康甘尽苦来能力；gtgthyyy放假快乐的；结果看了份 i"];
+    self.heightArr = [[NSMutableArray alloc] init];
+    self.ifOpendic = [[NSMutableDictionary alloc] init];
+    return self;
+}
+@end

@@ -1,0 +1,128 @@
+//
+//  EHomeTableView.m
+//  eHome
+//
+//  Created by 秦世帅 on 2017/5/26.
+//  Copyright © 2017年 whsmwy. All rights reserved.
+//
+
+#import "EHomeTableView.h"
+#import "UIView+Toast.h"
+#import "MJRefresh.h"
+@implementation EHomeTableView
+
+-(instancetype)initWithFrame:(CGRect)frame style:(UITableViewStyle)style {
+    
+    self = [super initWithFrame:frame style:style];
+    if (self)
+    {
+        self.currentPage = 1;
+        self.showsHorizontalScrollIndicator = NO;
+        self.showsVerticalScrollIndicator = NO;
+        self.separatorStyle = UITableViewCellSeparatorStyleNone;
+        self.backgroundColor = [UIColor clearColor];
+        [self addHeaderWithTarget:self action:@selector(loadNew)];
+        [self addFooterWithTarget:self action:@selector(loadMore)];
+        if ([self respondsToSelector:@selector(setSeparatorInset:)])
+        {
+            [self setSeparatorInset:UIEdgeInsetsMake(0,0,0,0)];
+        }
+        if ([self respondsToSelector:@selector(setLayoutMargins:)])
+        {
+            [self setLayoutMargins:UIEdgeInsetsMake(0,0,0,0)];
+        }
+    }
+    return self;
+}
+
+-(void)setRequest:(RequestDataBlock)requestDataBlock{
+    
+    if (requestDataBlock) {
+        self.requestDataBlock = requestDataBlock;
+    }
+}
+-(void)loadNew
+{
+    _currentPage = 1;
+//    [_noDataView hidden];
+    if (self.requestDataBlock) {
+        self.requestDataBlock(_currentPage);
+    }
+}
+-(void)loadMore
+{
+    _currentPage++;
+    if (self.requestDataBlock) {
+        self.requestDataBlock(_currentPage);
+    }
+}
+-(void)showNoMoreData{
+    //    if (_showLab == nil)
+    //    {
+    //        _showLab =  [[NoMoreDatalbl alloc] initWithFrame:CGRectMake(100, [UIScreen mainScreen].bounds.size.height - 180, [UIScreen mainScreen].bounds.size.width-200, 28 )];
+    //    }
+    ////
+    //    [_showLab showLbl];
+    //     [self addSubview:_showLab];
+    //    [self.superview showToast:_showLab duration:2.0f position:CSToastPositionBigBottom      ];
+    //    [self makeToast:@"暂无更多数据"];
+    
+    [self.superview makeToast:@"暂无更多数据" duration:2.0f position:CSToastPositionBigBottom];
+    //    [self.superview makeToast:@"暂无更多数据"];
+}
+-(void )showNODataView{
+//    if (self.showNoDataView == NO || _noDataView != nil) {
+//        
+//    }
+//    else{
+//        _noDataView = [[NODataView alloc] initWithFrame:self.frame];
+//    }
+//    [_noDataView show];
+//    [self addSubview:_noDataView];
+}
+-(void)hiddenNoMoreData{
+//    [_showLab removeFromSuperview];
+}
+-(void)hiddenNODataView{
+//    [_noDataView removeFromSuperview];
+}
+-(void)endRefreshing{
+    [self headerEndRefreshing];
+    [self footerEndRefreshing];
+}
+-(void)requestWithData:(NSArray *)requestDataArr
+             totalPage:(NSInteger)totalPage
+               dataArr:(NSMutableArray *)dataArr
+        complemetBlock:(ComplementBlock)complementBlock{
+    
+    if (totalPage == 0) {
+        [self showNODataView];
+        [dataArr removeAllObjects];
+    }
+    else if (requestDataArr.count == 0){
+        [self showNoMoreData];
+        return;
+        //   没有更多数据
+        //        [dataArr removeAllObjects];
+    }
+    else{
+        [self hiddenNODataView];
+        [self hiddenNoMoreData];
+        
+        if (self.currentPage == 1)
+        {
+            [dataArr removeAllObjects];
+        }
+        [dataArr addObjectsFromArray:requestDataArr];
+        
+        if (complementBlock) {
+            complementBlock();
+        }
+    }
+    [self reloadData];
+}
+-(void)removeHeaderView{
+    [self removeHeader];
+}
+
+@end
